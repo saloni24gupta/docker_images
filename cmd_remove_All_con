@@ -1,2 +1,16 @@
-docker container rm -f $(docker container ls -a -q)
-docker rmi $(docker images -q)
+#docker container rm -f $(docker container ls -a -q)
+#docker rmi $(docker images -q)
+The docker exec command lets you interact with a container that is already running.
+#docker exec -it webapp /bin/bash 
+#docker exec -it webapp /bin/sh
+//To count the total number of running Docker containers (not images), use:
+#docker ps -q | wc -l  
+//Use this cleaner version to ignore empty lines:
+#docker ps -q | grep -v '^$' | wc -l
+filter image name onlt
+docker ps -a --format '{{.Image}}'
+In the PORTS column of docker ps, the format is hostPort->containerPort. The value after -> is the container (internal) port.
+docker ps  --format '{{.Ports}'
+
+Run an instance of kodekloud/simple-webapp:blue and name the container blue-app, mapping port 8080 on the container to port 38282 on the host
+docker run -p 38282:8080 --name blue-app kodekloud/simple-webapp:blue
