@@ -1,0 +1,19 @@
+docker run kodekloud/simple-webapp
+
+// docker run port hostip:containerip container_name
+docker run -p 80:5000 kodekloud/simple-webapp
+docker run -p 8000:5000 kodekloud/simple-webapp
+docker run -p 8001:5000 kodekloud/simple-webapp  
+docker run -p 3306:3306 mysql
+
+docker system events --since 60m
+docker container start casefour
+docker container run -itd --name=case1 httpd
+docker container ls -l
+docker container run -itd -P --name=case2 httpd
+docker container ls -l
+public ip/docker host port
+http://3.7.70.203:32768/
+docker container run -itd -p 82:80 --name=case3 httpd
+static host port: container port
+ sudo docker image inspect httpd 
